@@ -1,4 +1,4 @@
-# AI-Based Stock Market Risk Assessment and Return Analysis Using Machine Learning
+#  Stock Market Risk Assessment and Return Analysis Using Machine Learning
 
 ## 📌 Overview
 
