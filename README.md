@@ -1,64 +1,76 @@
-#  Stock Market Risk Assessment and Return Analysis Using Machine Learning
+# Stock Market Risk Assessment and Return Analysis Using Machine Learning
 
 ## 📌 Overview
 
 This project presents an AI-based framework for assessing stock market risk and analyzing stock returns using historical financial data and machine learning techniques.
 
-The study focuses on selected NSE-listed companies over the period from **1 January 2019 to 31 December 2025**. Financial indicators and technical features are derived from historical market data and used to classify stocks into different risk categories.
+The study focuses on selected NSE-listed companies over the period from **1 January 2019 to 31 December 2025**. Historical market data is processed to calculate financial and technical indicators that represent stock returns, volatility, market sensitivity, and other risk characteristics.
 
-Machine learning models are then trained and evaluated to determine their effectiveness in stock market risk classification.
+Machine learning algorithms are then applied to classify stocks into different risk categories and compare their predictive performance.
 
-The project also uses the **NIFTY 50 Index as a benchmark** for market-related analysis, including Beta calculation.
+The **NIFTY 50 Index** is used as the market benchmark for market-level analysis and Beta calculation.
 
 ---
 
 ## 🎯 Objectives
 
-The main objectives of this project are:
+The major objectives of this project are:
 
 - To collect historical stock market data for selected NSE-listed companies.
-- To analyze stock returns and market risk using financial indicators.
-- To calculate important risk and technical indicators from historical price data.
-- To classify stocks into **Low Risk, Medium Risk, and High Risk** categories.
-- To apply machine learning algorithms for risk classification.
+- To analyze stock returns and market risk using historical financial data.
+- To calculate financial and technical indicators related to stock risk.
+- To classify stocks into Low Risk, Medium Risk, and High Risk categories.
+- To apply machine learning algorithms for stock risk classification.
 - To compare the performance of different machine learning models.
-- To identify the features that contribute most to stock risk classification.
-- To analyze stock returns and risk characteristics across different companies and sectors.
+- To identify the most important features contributing to stock risk classification.
+- To analyze the relationship between stock risk and return.
+- To compare the risk characteristics of companies from different sectors.
 
 ---
 
-## 📊 Dataset
+## 📊 Companies Selected for Analysis
 
-The study uses historical market data for the period:
+The project considers the following ten NSE-listed companies:
 
-**1 January 2019 – 31 December 2025**
-
-The project focuses on the following NSE-listed companies:
-
-| Company | NSE Symbol | Sector |
-|---|---|---|
-| State Bank of India | SBIN | Banking |
-| Bharti Airtel Ltd. | BHARTIARTL | Telecommunications |
-| Mahindra & Mahindra Ltd. | M&M | Automobile |
-| Sun Pharmaceutical Industries Ltd. | SUNPHARMA | Healthcare |
-| ITC Ltd. | ITC | FMCG |
-| Larsen & Toubro Ltd. | LT | Construction |
-| NTPC Ltd. | NTPC | Power |
-| Tata Steel Ltd. | TATASTEEL | Metals |
-| Maruti Suzuki India Ltd. | MARUTI | Automobile |
-| Hindalco Industries Ltd. | HINDALCO | Metals |
+| No. | Company | NSE Symbol | Sector |
+|---|---|---|---|
+| 1 | State Bank of India | SBIN | Banking |
+| 2 | Bharti Airtel Ltd. | BHARTIARTL | Telecommunications |
+| 3 | Mahindra & Mahindra Ltd. | M&M | Automobile |
+| 4 | Sun Pharmaceutical Industries Ltd. | SUNPHARMA | Healthcare |
+| 5 | ITC Ltd. | ITC | FMCG |
+| 6 | Larsen & Toubro Ltd. | LT | Construction |
+| 7 | NTPC Ltd. | NTPC | Power |
+| 8 | Tata Steel Ltd. | TATASTEEL | Metals |
+| 9 | Maruti Suzuki India Ltd. | MARUTI | Automobile |
+| 10 | Hindalco Industries Ltd. | HINDALCO | Metals |
 
 ### Benchmark
 
-**NIFTY 50 Index**
-
-The NIFTY 50 is used as the benchmark for market-level comparison and Beta analysis.
+The **NIFTY 50 Index** is used as the benchmark for market-related analysis, particularly for calculating Beta and comparing individual stock performance with the broader market.
 
 ---
 
-## 📈 Raw Market Variables
+## 📅 Study Period
 
-The historical market data contains variables such as:
+The analysis covers historical market data from:
+
+**1 January 2019 to 31 December 2025**
+
+A time-based data split is used for machine learning:
+
+- **Training Period:** 2019–2023
+- **Testing Period:** 2024–2025
+
+This approach helps evaluate the models on a later period rather than randomly mixing historical observations.
+
+---
+
+## 📈 Dataset
+
+The project uses historical stock market information obtained from the **National Stock Exchange of India (NSE)**.
+
+The raw market variables include:
 
 - Date
 - Open Price
@@ -68,45 +80,45 @@ The historical market data contains variables such as:
 - Adjusted Close
 - Trading Volume
 
-These variables form the basis for calculating additional financial and technical features.
+The raw variables are processed and transformed into additional financial and technical features for risk and return analysis.
 
 ---
 
 ## ⚙️ Feature Engineering
 
-The following features are considered for stock risk and return analysis:
+Several financial and technical indicators are derived from the historical market data.
 
-### Return
+### Daily Return
 
-Daily stock return is calculated from historical closing prices to measure the percentage change in stock value.
+Daily Return measures the percentage change in the stock price from one trading day to the next.
 
 ### Volatility
 
-Volatility is used to measure the variation in stock returns and represents an important indicator of market risk.
+Volatility measures the variation in stock returns and is used as an important indicator of market risk.
 
 ### Sharpe Ratio
 
-The Sharpe Ratio is used to evaluate return relative to the level of risk.
+The Sharpe Ratio evaluates the return generated relative to the level of risk.
 
 ### Beta
 
-Beta measures the sensitivity of a stock's movement relative to the **NIFTY 50 benchmark**.
+Beta measures the sensitivity of an individual stock's returns relative to the **NIFTY 50 benchmark**.
 
 ### Maximum Drawdown
 
-Maximum Drawdown measures the largest decline in stock value from a previous peak.
+Maximum Drawdown measures the largest decline in stock value from a previous peak during the selected period.
 
 ### Moving Average
 
-Moving averages are used to identify trends in stock prices.
+Moving averages are calculated to capture price trends and smooth short-term fluctuations.
 
-### RSI
+### Relative Strength Index
 
 The Relative Strength Index (RSI) is used as a technical indicator to measure the strength of recent price movements.
 
 ### Volume-Based Features
 
-Trading volume is analyzed to capture changes in market participation and trading activity.
+Trading volume and related indicators are used to capture changes in market participation and trading activity.
 
 ---
 
@@ -118,49 +130,59 @@ The project classifies stocks into three risk categories:
 - **Medium Risk**
 - **High Risk**
 
-These categories are used as the target variable for machine learning classification.
+The risk categories are derived from financial risk characteristics calculated from historical market data.
 
-The classification is based on financial risk characteristics derived from historical market data.
+These categories are then used as the target variable for machine learning classification.
 
 ---
 
 ## 🤖 Machine Learning Models
 
-The project evaluates multiple machine learning algorithms for stock risk classification.
+Three machine learning algorithms are considered for stock risk classification.
 
 ### 1. Decision Tree
 
-A Decision Tree is used to create interpretable decision rules for classifying stocks into different risk categories.
+The Decision Tree algorithm is used to classify stocks into different risk categories using decision-based rules.
+
+It also provides an interpretable representation of how different financial features contribute to the classification.
 
 ### 2. Random Forest
 
-Random Forest combines multiple decision trees to improve classification performance and provide feature importance information.
+Random Forest combines multiple decision trees to improve classification performance and robustness.
+
+It also provides feature importance values that can be used to identify the financial indicators that have greater influence on risk classification.
 
 ### 3. Support Vector Machine
 
-Support Vector Machine (SVM) is used to identify boundaries between different stock risk categories.
+Support Vector Machine (SVM) is used to identify decision boundaries between different risk categories.
+
+It is evaluated along with Decision Tree and Random Forest to compare different machine learning approaches.
 
 ---
 
-## 🧪 Training and Testing
+## 🧪 Training and Testing Methodology
 
-A time-based split is used to avoid using future information for training.
+A time-based train-test split is used in this project.
 
 ### Training Data
 
-**2019 – 2023**
+**2019–2023**
+
+The training data is used to develop and train the machine learning models.
 
 ### Testing Data
 
-**2024 – 2025**
+**2024–2025**
 
-This approach allows the models to be evaluated on a later time period and provides a more realistic assessment of their classification performance.
+The testing data is used to evaluate how well the trained models classify risk categories on later market observations.
+
+This approach is more suitable for historical financial data because it maintains the chronological order of observations.
 
 ---
 
 ## 📏 Model Evaluation
 
-The machine learning models are evaluated using:
+The machine learning models are evaluated using multiple classification metrics:
 
 - Accuracy
 - Precision
@@ -169,15 +191,34 @@ The machine learning models are evaluated using:
 - F1 Score
 - Confusion Matrix
 
-The performance of the models is compared to determine which algorithm provides better stock risk classification.
+These metrics are used to compare the performance of Decision Tree, Random Forest, and Support Vector Machine models.
 
 ---
 
-## 🔍 Feature Importance
+## 🔍 Feature Importance Analysis
 
-Feature importance is analyzed to identify which financial and technical indicators contribute most to the prediction of stock risk.
+Feature importance analysis is performed to determine which financial and technical indicators contribute most to stock risk classification.
 
-This helps in understanding the relationship between market characteristics and risk classification.
+This helps provide better insight into the relationship between market characteristics and stock risk.
+
+Features such as volatility, return, Beta, Maximum Drawdown, Sharpe Ratio, moving averages, RSI, and volume-related measures can be analyzed for their contribution to the classification process.
+
+---
+
+## 📊 Stock Return Analysis
+
+In addition to risk classification, the project analyzes stock return characteristics.
+
+The return analysis includes:
+
+- Daily returns
+- Average returns
+- Return variability
+- Risk-adjusted performance
+- Market sensitivity
+- Drawdown characteristics
+
+The objective is to understand how different stocks behave in terms of both **risk and return** over the study period.
 
 ---
 
@@ -188,28 +229,33 @@ Historical NSE Market Data
             ↓
        Data Collection
             ↓
-       Data Cleaning
+       Data Preprocessing
             ↓
-    Feature Engineering
+      Feature Engineering
             ↓
- Return & Risk Calculation
+ Return and Risk Calculation
             ↓
      Risk Classification
             ↓
-     Train/Test Split
+      Train/Test Split
             ↓
  ┌──────────┬──────────┬──────────┐
  │ Decision │  Random  │   SVM    │
  │   Tree   │  Forest  │          │
  └──────────┴──────────┴──────────┘
             ↓
-    Model Evaluation
+     Model Evaluation
             ↓
-Feature Importance Analysis
+   Feature Importance
             ↓
  Stock Risk & Return Analysis
+```
 
-📁 Project Structure
+---
+
+## 🗂️ Project Structure
+
+```text
 stock-market-risk-analysis/
 │
 ├── README.md
@@ -230,15 +276,89 @@ stock-market-risk-analysis/
     ├── feature_engineering.py
     ├── risk_classification.py
     └── model_training.py
-🛠️ Technologies Used
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- Requests
-- Jupyter Notebook
- Feature Importance Analysis
-            ↓
- Stock Risk & Return Analysis
+```
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **Scikit-learn**
+- **Matplotlib**
+- **Seaborn**
+- **Requests**
+- **Jupyter Notebook**
+
+---
+
+---
+
+## ▶️ Usage
+
+The project modules can be executed as part of the complete workflow.
+
+### Data Collection
+
+```bash
+python src/data_collection.py
+```
+
+### Data Preprocessing
+
+```bash
+python src/preprocessing.py
+```
+
+### Feature Engineering
+
+```bash
+python src/feature_engineering.py
+```
+
+### Risk Classification
+
+```bash
+python src/risk_classification.py
+```
+
+### Model Training
+
+```bash
+python src/model_training.py
+```
+
+The complete analysis can also be executed through Jupyter Notebook.
+
+---
+
+## 📌 Project Status
+
+The repository currently contains the initial project structure and implementation modules.
+
+The complete implementation will cover:
+
+- NSE historical data collection
+- Data preprocessing
+- Feature engineering
+- Financial risk calculation
+- Return analysis
+- Risk category generation
+- Machine learning model training
+- Model evaluation
+- Feature importance analysis
+- Comparison of machine learning models
+
+Final model performance results and analytical findings will be added after completing the implementation and evaluation using the final dataset.
+
+---
+
+## 🌐 Data Source
+
+Historical market data used in the project is based on information from the **National Stock Exchange of India (NSE)**.
+
+The NIFTY 50 Index is used as the benchmark for market-level analysis.
+
+---
+
